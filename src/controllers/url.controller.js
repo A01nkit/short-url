@@ -10,7 +10,7 @@ export const createShortUrl = asyncHandler(async (req, res, next) => {
     if (!originalUrl) {
         throw new ApiError(404, 'Please provide a valid url');
     }
-    
+    console.log("yes")
     const urlCode = generateShortCode()
     console.log(urlCode)
     await Url.create({
@@ -19,7 +19,7 @@ export const createShortUrl = asyncHandler(async (req, res, next) => {
     })
     
     let shortUrl = process.env.BASE_URL + urlCode
-
+    
     return ApiResponse.send(res, 'Sucessfully generated', 200, shortUrl)
 
 });

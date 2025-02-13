@@ -2,11 +2,16 @@ import express from "express"
 import cors from "cors"
 
 
+
 const app = express()
 
 app.use(cors({
     origin: process.env.CORS_ORIGIN
 }))
+
+//Set static folder
+app.use(express.static('./client'))
+
 
 // configuring, what type of date we can get and other configurations.
 
