@@ -5,15 +5,24 @@ const urlSchema = new Schema({
         type: String,
         required: true
     },
-    shortId: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    readCount: {
-        type: Number,
-        default: 0
-    }
+    analytics: [{
+        ipAddress: {
+            type: String,
+        },
+        device: {//sec-ch-ua-mobile
+            type: String,
+        },
+        os: {//sec-ch-ua-platform
+            type: String,
+        },
+        browser: {
+            type: String,
+        },
+        timestamp: { 
+            type: Date, default: Date.now 
+        }
+    }],
+
 },
 { timestamps: true }
 );

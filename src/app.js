@@ -21,9 +21,11 @@ app.use(express.static("public"))//to store resources on server
 
 
 //Routes import 
-import urlRoutes from './routes/url.routes.js'
+import shortenRoutes from './routes/shorten.routes.js'
+import analyticsRoutes from './routes/analytics.routes.js'
 
-app.use('/url', urlRoutes)
+app.use('/url/shorten', shortenRoutes)
+app.use('/url/analytics', analyticsRoutes)
 
 
 import { handleError } from "./utils/errorHandler.js"
